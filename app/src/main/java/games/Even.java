@@ -24,11 +24,11 @@ public class Even {
             String answerForEven = scanAnswerEven.next();
 
             if (evenNumber % 2 == 0 && answerForEven.equalsIgnoreCase("yes")) {
-                System.out.println("Your answer: Yes\nCorrect!");
+                System.out.println("Your answer: 'Yes'\nCorrect!");
                 countCorrectAnswer++;
             }
             if (evenNumber % 2 != 0 && answerForEven.equalsIgnoreCase("no")) {
-                System.out.println("Your answer: No\nCorrect!");
+                System.out.println("Your answer: 'No'\nCorrect!");
                 countCorrectAnswer++;
             } else if (evenNumber % 2 == 0 && answerForEven.equalsIgnoreCase("no") || evenNumber % 2 != 0 && answerForEven.equalsIgnoreCase("yes")) {
                 correctAnswer = answerForEven.equalsIgnoreCase("Yes") ? "no" : "yes";
