@@ -14,16 +14,15 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int countCorrectAnswer = 0;
+        Random random = new Random();
 
         for (int i = 0; i < 3; i++) {
-            Random random = new Random();
             int number1 = random.nextInt(100);
             int number2 = random.nextInt(100);
 
             String[] operands = {"+", "-", "*"};
-            double randomNumber = Math.random() * 3;
-            int calcNumber = (int) randomNumber;
-            String operand = operands[calcNumber];
+            int selectedOperand = random.nextInt(3);
+            String operand = operands[selectedOperand];
             int answerCalc = switch (operand) {
                 case "+" -> number1 + number2;
                 case "-" -> number1 - number2;
@@ -31,7 +30,7 @@ public class Calc {
                 default -> 0;
             };
 
-            System.out.println("Question: " + number1 + " " + operands[calcNumber] + " " + number2);
+            System.out.println("Question: " + number1 + " " + operands[selectedOperand] + " " + number2);
 
             Scanner scanAnswer = new Scanner(System.in);
             int playerAnswer = scanAnswer.nextInt();
