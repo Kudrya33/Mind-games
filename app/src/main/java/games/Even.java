@@ -1,5 +1,6 @@
 package games;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
@@ -14,10 +15,10 @@ public class Even {
 
         int countCorrectAnswer = 0;
         String correctAnswer;
+        Random random = new Random();
 
         for (int i = 0; i < 3; i++) {
-            double randomNumber = Math.random() * 100;
-            int evenNumber = (int) randomNumber;
+            int evenNumber = random.nextInt(100);
             System.out.println("Question: " + evenNumber);
 
             Scanner scanAnswerEven = new Scanner(System.in);
