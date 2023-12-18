@@ -10,9 +10,11 @@ public class Even {
         String userName = Cli.greetsThePlayer();
 
         String rulesOfTheGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
         int countCorrectAnswer = 0;
 
         String correctAnswer = "";
+
         Random random = new Random();
 
         for (int i = 0; i < 3; i++) {

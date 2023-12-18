@@ -10,6 +10,7 @@ public class Calc {
         String userName = Cli.greetsThePlayer();
 
         String rulesOfTheGame = "What is the result of the expression?";
+
         int countCorrectAnswer = 0;
 
         Random random = new Random();
