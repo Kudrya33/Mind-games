@@ -3,12 +3,13 @@ package hexlet.code;
 import games.Calc;
 import games.Even;
 import games.GCD;
+import games.Progression;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n0 - Exit");
+        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n0 - Exit");
 
         Scanner scanNumberGame = new Scanner(System.in);
         int gameNumberSelection = scanNumberGame.nextInt();
@@ -28,6 +29,9 @@ public class App {
                 break;
             case 4:
                 GCD.startsTheGameGCD();
+                break;
+            case 5:
+                Progression.startsTheGameProgression();
                 break;
             default:
                 break;
