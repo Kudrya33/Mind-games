@@ -24,14 +24,14 @@ public class GCD {
             }
             int number1 = random.nextInt(100);
             int number2 = random.nextInt(100);
-            int a = number1;
-            int b = number2;
+            int numberOne = number1;
+            int numberTwo = number2;
 
-            while (b !=0) {
-                int tmp = a % b;
-                correctAnswer = b;
-                a = b;
-                b = tmp;
+            while (numberTwo !=0) {
+                int remainder = numberOne % numberTwo;
+                correctAnswer = numberTwo;
+                numberOne = numberTwo;
+                numberTwo = remainder;
             }
 
             String correctAnswerToString = Integer.toString(correctAnswer);
