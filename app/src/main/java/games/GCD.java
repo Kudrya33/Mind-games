@@ -14,20 +14,23 @@ public class GCD {
         int countCorrectAnswer = 0;
 
         Random random = new Random();
+        int numberOfRounds = 3;
+        int number1;
+        int number2;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numberOfRounds; i++) {
 
             int correctAnswer = 1;
 
             if (countCorrectAnswer == -1) {
                 break;
             }
-            int number1 = random.nextInt(100);
-            int number2 = random.nextInt(100);
+            number1 = random.nextInt(100);
+            number2 = random.nextInt(100);
             int numberOne = number1;
             int numberTwo = number2;
 
-            while (numberTwo !=0) {
+            while (numberTwo != 0) {
                 int remainder = numberOne % numberTwo;
                 correctAnswer = numberTwo;
                 numberOne = numberTwo;

@@ -16,16 +16,17 @@ public class Even {
         String correctAnswer = "";
 
         Random random = new Random();
+        int numberOfRounds = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numberOfRounds; i++) {
             if (countCorrectAnswer == -1) {
                 break;
             }
             int evenNumber = random.nextInt(100);
-            if (evenNumber%2 == 0) {
+            if (evenNumber % 2 == 0) {
                 correctAnswer = "yes";
             }
-            if (evenNumber%2 != 0) {
+            if (evenNumber % 2 != 0) {
                 correctAnswer = "no";
             }
             String question = "Question: " + evenNumber;

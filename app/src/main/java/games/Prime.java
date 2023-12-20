@@ -14,8 +14,9 @@ public class Prime {
         int countCorrectAnswer = 0;
 
         Random random = new Random();
+        int numberOfRounds = 3;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numberOfRounds; i++) {
             if (countCorrectAnswer == -1) {
                 break;
             }

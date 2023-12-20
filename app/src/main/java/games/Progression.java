@@ -15,16 +15,20 @@ public class Progression {
         int countCorrectAnswer = 0;
 
         Random random = new Random();
+        int numberOfRounds = 3;
+        int startNumber;
+        int countStep;
+        int numberMissing;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numberOfRounds; i++) {
 
             if (countCorrectAnswer == -1) {
                 break;
             }
             int[] numbers = new int[10];
-            int startNumber = random.nextInt(100);
-            int countStep = random.nextInt(10);
-            int numberMissing = random.nextInt(10);
+            startNumber = random.nextInt(100);
+            countStep = random.nextInt(10);
+            numberMissing = random.nextInt(10);
             numbers[0] = startNumber;
             for (int j = 1; j < numbers.length; j++) {
                 numbers[j] = startNumber + countStep;
