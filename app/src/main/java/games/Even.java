@@ -9,9 +9,9 @@ public class Even {
     public static void startsTheGameEven() {
         String userName = Cli.greetsThePlayer();
 
-        String rulesOfTheGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-        int countCorrectAnswer = 0;
+        int countAnswer = 0;
 
         String correctAnswer = "";
 
@@ -19,7 +19,7 @@ public class Even {
         int numberOfRounds = 3;
 
         for (int i = 0; i < numberOfRounds; i++) {
-            if (countCorrectAnswer == -1) {
+            if (countAnswer == -1) {
                 break;
             }
             int evenNumber = random.nextInt(100);
@@ -30,7 +30,7 @@ public class Even {
                 correctAnswer = "no";
             }
             String question = "Question: " + evenNumber;
-            countCorrectAnswer = Engine.launchEngine(userName, rulesOfTheGame, question, correctAnswer, i, countCorrectAnswer);
+            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswer, i, countAnswer);
         }
     }
 }

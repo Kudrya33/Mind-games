@@ -9,9 +9,9 @@ public class Calc {
     public static void startsTheGameCalc() {
         String userName = Cli.greetsThePlayer();
 
-        String rulesOfTheGame = "What is the result of the expression?";
+        String rules = "What is the result of the expression?";
 
-        int countCorrectAnswer = 0;
+        int countAnswer = 0;
 
         Random random = new Random();
         int numberOfRounds = 3;
@@ -19,7 +19,7 @@ public class Calc {
         int number2;
 
         for (int i = 0; i < numberOfRounds; i++) {
-            if (countCorrectAnswer == -1) {
+            if (countAnswer == -1) {
                 break;
             }
             number1 = random.nextInt(100);
@@ -37,7 +37,7 @@ public class Calc {
             String correctAnswerToString = Integer.toString(correctAnswer);
 
             String question = "Question: " + number1 + " " + operands[selectedOperand] + " " + number2;
-            countCorrectAnswer = Engine.launchEngine(userName, rulesOfTheGame, question, correctAnswerToString, i, countCorrectAnswer);
+            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }
 }

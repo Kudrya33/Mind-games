@@ -10,9 +10,9 @@ public class Progression {
     public static void startsTheGameProgression() {
         String userName = Cli.greetsThePlayer();
 
-        String rulesOfTheGame = "What number is missing in the progression?";
+        String rules = "What number is missing in the progression?";
 
-        int countCorrectAnswer = 0;
+        int countAnswer = 0;
 
         Random random = new Random();
         int numberOfRounds = 3;
@@ -22,7 +22,7 @@ public class Progression {
 
         for (int i = 0; i < numberOfRounds; i++) {
 
-            if (countCorrectAnswer == -1) {
+            if (countAnswer == -1) {
                 break;
             }
             int[] numbers = new int[10];
@@ -37,13 +37,14 @@ public class Progression {
             int correctAnswer = numbers[numberMissing];
             String correctAnswerToString = Integer.toString(correctAnswer);
 
-            numbers[numberMissing] = 999;
+            int unattainableNumber = 999;
+            numbers[numberMissing] = unattainableNumber;
 
             String processedString = Arrays.toString(numbers);
             processedString = processedString.replace("[", "").replace("]", "").replace(",", "").replace("999", "..");
 
             String question = "Question: " + processedString;
-            countCorrectAnswer = Engine.launchEngine(userName, rulesOfTheGame, question, correctAnswerToString, i, countCorrectAnswer);
+            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }
 }

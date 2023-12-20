@@ -9,9 +9,9 @@ public class GCD {
     public static void startsTheGameGCD() {
         String userName = Cli.greetsThePlayer();
 
-        String rulesOfTheGame = "Find the greatest common divisor of given numbers.";
+        String rules = "Find the greatest common divisor of given numbers.";
 
-        int countCorrectAnswer = 0;
+        int countAnswer = 0;
 
         Random random = new Random();
         int numberOfRounds = 3;
@@ -22,7 +22,7 @@ public class GCD {
 
             int correctAnswer = 1;
 
-            if (countCorrectAnswer == -1) {
+            if (countAnswer == -1) {
                 break;
             }
             number1 = random.nextInt(100);
@@ -39,7 +39,7 @@ public class GCD {
 
             String correctAnswerToString = Integer.toString(correctAnswer);
             String question = "Question: " + number1 + " " + number2;
-            countCorrectAnswer = Engine.launchEngine(userName, rulesOfTheGame, question, correctAnswerToString, i, countCorrectAnswer);
+            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }
 }
