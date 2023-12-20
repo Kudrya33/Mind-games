@@ -30,7 +30,7 @@ public class Even {
                 correctAnswer = "no";
             }
             String question = "Question: " + evenNumber;
-            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswer, i, countAnswer);
+            countAnswer = Engine.upEngine(userName, rules, question, correctAnswer, i, countAnswer);
         }
     }
 }

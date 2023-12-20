@@ -36,7 +36,7 @@ public class Prime {
                 }
             }
             String question = "Question: " + number;
-            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswer, i, countAnswer);
+            countAnswer = Engine.upEngine(userName, rules, question, correctAnswer, i, countAnswer);
         }
     }
 }

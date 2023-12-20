@@ -44,7 +44,7 @@ public class Progression {
             processedString = processedString.replace("[", "").replace("]", "").replace(",", "").replace("999", "..");
 
             String question = "Question: " + processedString;
-            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
+            countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }
 }

@@ -15,8 +15,8 @@ public class GCD {
 
         Random random = new Random();
         int numberOfRounds = 3;
-        int number1;
-        int number2;
+        int numberFirst;
+        int numberLast;
 
         for (int i = 0; i < numberOfRounds; i++) {
 
@@ -25,10 +25,10 @@ public class GCD {
             if (countAnswer == -1) {
                 break;
             }
-            number1 = random.nextInt(100);
-            number2 = random.nextInt(100);
-            int numberOne = number1;
-            int numberTwo = number2;
+            numberFirst = random.nextInt(100);
+            numberLast = random.nextInt(100);
+            int numberOne = numberFirst;
+            int numberTwo = numberLast;
 
             while (numberTwo != 0) {
                 int remainder = numberOne % numberTwo;
@@ -38,8 +38,8 @@ public class GCD {
             }
 
             String correctAnswerToString = Integer.toString(correctAnswer);
-            String question = "Question: " + number1 + " " + number2;
-            countAnswer = Engine.launchEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
+            String question = "Question: " + numberFirst + " " + numberLast;
+            countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }
 }

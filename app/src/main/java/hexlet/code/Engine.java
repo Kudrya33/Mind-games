@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int launchEngine(String userName, String rules, String question, String correctAnswer, int i, int countCorrectAnswer) {
+    public static int upEngine(String userName, String rules, String question, String correctAnswer, int i, int countAnswer) {
         if (i == 0) {
             System.out.println(rules);
         }
@@ -17,17 +17,17 @@ public class Engine {
 
             if (playerAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("Correct!");
-                countCorrectAnswer++;
+                countAnswer++;
             }
-            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countCorrectAnswer == 3) {
+            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countAnswer == 3) {
                 System.out.println("Congratulations, " + userName + "!");
             }
             if (!playerAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                countCorrectAnswer = -1;
+                countAnswer = -1;
             }
         }
-        return countCorrectAnswer;
+        return countAnswer;
     }
 }
