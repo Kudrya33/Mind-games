@@ -3,7 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int upEngine(String userName, String rules, String question, String correctAnswer, int i, int countAnswer) {
+    public static int upEngine(String userName, String rules, String question,
+                               String correctAnswer, int i, int countAnswer) {
         if (i == 0) {
             System.out.println(rules);
         }
@@ -23,7 +24,8 @@ public class Engine {
                 System.out.println("Congratulations, " + userName + "!");
             }
             if (!playerAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. " +
+                        "Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 countAnswer = -1;
             }
