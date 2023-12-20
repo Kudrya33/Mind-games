@@ -20,6 +20,7 @@ public class App {
             case 1:
                 System.out.println("Welcome to the Brain Games!");
                 Cli.greetsThePlayer();
+                break;
             case 2:
                 Even.startsTheGameEven();
                 break;
