@@ -19,13 +19,15 @@ public class Progression {
         int startNumber;
         int countStep;
         int numberMissing;
+        int unattainableNumber = 999;
+        int arrayLength = 10;
 
         for (int i = 0; i < numberOfRounds; i++) {
 
             if (countAnswer == -1) {
                 break;
             }
-            int[] numbers = new int[10];
+            int[] numbers = new int[arrayLength];
             startNumber = random.nextInt(100);
             countStep = random.nextInt(10);
             numberMissing = random.nextInt(10);
@@ -37,7 +39,6 @@ public class Progression {
             int correctAnswer = numbers[numberMissing];
             String correctAnswerToString = Integer.toString(correctAnswer);
 
-            int unattainableNumber = 999;
             numbers[numberMissing] = unattainableNumber;
 
             String processedString = Arrays.toString(numbers);

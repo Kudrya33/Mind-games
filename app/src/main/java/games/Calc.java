@@ -17,6 +17,7 @@ public class Calc {
         int numberOfRounds = 3;
         int numberFirst;
         int numberLast;
+        int countOperands = 3;
 
         for (int i = 0; i < numberOfRounds; i++) {
             if (countAnswer == -1) {
@@ -26,7 +27,7 @@ public class Calc {
             numberLast = random.nextInt(100);
 
             String[] operands = {"+", "-", "*"};
-            int selectedOperand = random.nextInt(3);
+            int selectedOperand = random.nextInt(countOperands);
             String operand = operands[selectedOperand];
             int correctAnswer = switch (operand) {
                 case "+" -> numberFirst + numberLast;

@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Engine {
     public static int upEngine(String userName, String rules, String question,
                                String correctAnswer, int i, int countAnswer) {
+        int numberRound;
+        numberRound = i;
         if (i == 0) {
             System.out.println(rules);
         }
@@ -20,12 +22,12 @@ public class Engine {
                 System.out.println("Correct!");
                 countAnswer++;
             }
-            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countAnswer == 3) {
+            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countAnswer == numberRound) {
                 System.out.println("Congratulations, " + userName + "!");
             }
             if (!playerAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. " +
-                        "Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. "
+                        + "Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 countAnswer = -1;
             }
