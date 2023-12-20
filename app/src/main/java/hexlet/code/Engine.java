@@ -7,10 +7,10 @@ public class Engine {
                                String correctAnswer, int i, int countAnswer) {
         int numberRound;
         numberRound = i;
-        if (i == 0) {
+        if (numberRound == 0) {
             System.out.println(rules);
         }
-        if (i < 3) {
+        if (numberRound < 3) {
             System.out.println(question);
 
             Scanner scanAnswer = new Scanner(System.in);
