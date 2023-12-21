@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Progression {
+    static final int INTERVAL = 100;
+    static final int UNATTAINABLE_NUMBER = 999;
+    static final int INTERVAL_CHOICE = 10;
     public static void startsTheGameProgression() {
         String userName = Cli.greetsThePlayer();
 
@@ -19,7 +22,6 @@ public class Progression {
         int startNumber;
         int countStep;
         int numberMissing;
-        int unattainableNumber = 999;
         int arrayLength = 10;
 
         for (int i = 0; i < numberOfRounds; i++) {
@@ -28,9 +30,9 @@ public class Progression {
                 break;
             }
             int[] numbers = new int[arrayLength];
-            startNumber = random.nextInt(100);
-            countStep = random.nextInt(10);
-            numberMissing = random.nextInt(10);
+            startNumber = random.nextInt(INTERVAL);
+            countStep = random.nextInt(INTERVAL_CHOICE);
+            numberMissing = random.nextInt(INTERVAL_CHOICE);
             numbers[0] = startNumber;
             for (int j = 1; j < numbers.length; j++) {
                 numbers[j] = startNumber + countStep;
@@ -39,7 +41,7 @@ public class Progression {
             int correctAnswer = numbers[numberMissing];
             String correctAnswerToString = Integer.toString(correctAnswer);
 
-            numbers[numberMissing] = unattainableNumber;
+            numbers[numberMissing] = UNATTAINABLE_NUMBER;
 
             String processedString = Arrays.toString(numbers);
             processedString = processedString.replace("[", "").replace("]", "").replace(",", "").replace("999", "..");

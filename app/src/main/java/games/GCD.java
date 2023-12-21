@@ -6,6 +6,8 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
+    static final int NUMBER_OF_ROUNDS = 3;
+    static final int INTERVAL = 100;
     public static void startsTheGameGCD() {
         String userName = Cli.greetsThePlayer();
 
@@ -14,21 +16,18 @@ public class GCD {
         int countAnswer = 0;
 
         Random random = new Random();
-        int numberOfRounds = 3;
-        int numberFirst;
-        int numberLast;
 
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 
             int correctAnswer = 1;
 
             if (countAnswer == -1) {
                 break;
             }
-            numberFirst = random.nextInt(100);
-            numberLast = random.nextInt(100);
-            int numberOne = numberFirst;
-            int numberTwo = numberLast;
+            int number1 = random.nextInt(INTERVAL);
+            int number2 = random.nextInt(INTERVAL);
+            int numberOne = number1;
+            int numberTwo = number2;
 
             while (numberTwo != 0) {
                 int remainder = numberOne % numberTwo;
@@ -38,7 +37,7 @@ public class GCD {
             }
 
             String correctAnswerToString = Integer.toString(correctAnswer);
-            String question = "Question: " + numberFirst + " " + numberLast;
+            String question = "Question: " + number1 + " " + number2;
             countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
         }
     }

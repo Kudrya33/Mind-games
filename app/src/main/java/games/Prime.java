@@ -6,6 +6,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
+    static final int INTERVAL = 100;
     public static void startsTheGamePrime() {
         String userName = Cli.greetsThePlayer();
 
@@ -20,7 +21,7 @@ public class Prime {
             if (countAnswer == -1) {
                 break;
             }
-            int number = random.nextInt(100);
+            int number = random.nextInt(INTERVAL);
             String correctAnswer = "";
             if (number < 2) {
                 correctAnswer = "no";

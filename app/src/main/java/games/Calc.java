@@ -6,6 +6,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
+    static final int INTERVAL = 100;
     public static void startsTheGameCalc() {
         String userName = Cli.greetsThePlayer();
 
@@ -23,8 +24,8 @@ public class Calc {
             if (countAnswer == -1) {
                 break;
             }
-            numberFirst = random.nextInt(100);
-            numberLast = random.nextInt(100);
+            numberFirst = random.nextInt(INTERVAL);
+            numberLast = random.nextInt(INTERVAL);
 
             String[] operands = {"+", "-", "*"};
             int selectedOperand = random.nextInt(countOperands);

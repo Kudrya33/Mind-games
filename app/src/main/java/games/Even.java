@@ -6,6 +6,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
+    static final int INTERVAL = 100;
     public static void startsTheGameEven() {
         String userName = Cli.greetsThePlayer();
 
@@ -22,7 +23,7 @@ public class Even {
             if (countAnswer == -1) {
                 break;
             }
-            int evenNumber = random.nextInt(100);
+            int evenNumber = random.nextInt(INTERVAL);
             if (evenNumber % 2 == 0) {
                 correctAnswer = "yes";
             }
