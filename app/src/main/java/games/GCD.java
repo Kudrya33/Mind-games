@@ -24,8 +24,8 @@ public class GCD {
             if (countAnswer == -1) {
                 break;
             }
-            int number1 = random.nextInt(INTERVAL);
-            int number2 = random.nextInt(INTERVAL);
+            int number1 = 91;
+            int number2 = 0;
             int numberOne = number1;
             int numberTwo = number2;
 
@@ -34,6 +34,9 @@ public class GCD {
                 correctAnswer = numberTwo;
                 numberOne = numberTwo;
                 numberTwo = remainder;
+            }
+            if (number2 == 0) {
+                correctAnswer = number1;
             }
 
             String correctAnswerToString = Integer.toString(correctAnswer);
