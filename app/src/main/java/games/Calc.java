@@ -17,15 +17,13 @@ public class Calc {
         int countAnswer = 0;
 
         Random random = new Random();
-        int numberFirst;
-        int numberLast;
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             if (countAnswer == -1) {
                 break;
             }
-            numberFirst = random.nextInt(INTERVAL);
-            numberLast = random.nextInt(INTERVAL);
+            int numberFirst = random.nextInt(INTERVAL);
+            int numberLast = random.nextInt(INTERVAL);
 
             String[] operands = {"+", "-", "*"};
             int selectedOperand = random.nextInt(COUNT_OPERANDS);

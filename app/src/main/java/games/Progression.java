@@ -20,9 +20,6 @@ public class Progression {
         int countAnswer = 0;
 
         Random random = new Random();
-        int startNumber;
-        int countStep;
-        int numberMissing;
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 
@@ -30,9 +27,9 @@ public class Progression {
                 break;
             }
             int[] numbers = new int[ARRAY_LENGTH];
-            startNumber = random.nextInt(INTERVAL);
-            countStep = random.nextInt(INTERVAL_CHOICE);
-            numberMissing = random.nextInt(INTERVAL_CHOICE);
+            int startNumber = random.nextInt(INTERVAL);
+            int countStep = random.nextInt(INTERVAL_CHOICE);
+            int numberMissing = random.nextInt(INTERVAL_CHOICE);
             numbers[0] = startNumber;
             for (int j = 1; j < numbers.length; j++) {
                 numbers[j] = startNumber + countStep;

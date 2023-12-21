@@ -14,31 +14,31 @@ public class App {
         System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
 
         Scanner scanNumberGame = new Scanner(System.in);
-        int gameNumberSelection = scanNumberGame.nextInt();
+        String gameNumberSelection = scanNumberGame.nextLine();
 
         System.out.println("Your choice: " + gameNumberSelection);
         System.out.println("Welcome to the Brain Games!");
 
         switch (gameNumberSelection) {
-            case 0:
+            case "0":
                 break;
-            case 1:
+            case "1":
                 System.out.println("Welcome to the Brain Games!");
                 Cli.greetsThePlayer();
                 break;
-            case 2:
+            case "2":
                 Even.startsTheGameEven();
                 break;
-            case 3:
+            case "3":
                 Calc.startsTheGameCalc();
                 break;
-            case 4:
+            case "4":
                 GCD.startsTheGameGCD();
                 break;
-            case 5:
+            case "5":
                 Progression.startsTheGameProgression();
                 break;
-            case 6:
+            case "6":
                 Prime.startsTheGamePrime();
                 break;
             default:
