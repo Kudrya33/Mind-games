@@ -27,7 +27,8 @@ public class Engine {
                 System.out.println("Congratulations, " + userName + "!");
             }
             if (!playerAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. " + "Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. "
+                        + "Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 countAnswer = -1;
             }
