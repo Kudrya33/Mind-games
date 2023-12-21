@@ -3,15 +3,15 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    static final int NUMBER_OF_ROUNDS = 3;
     public static int upEngine(String userName, String rules, String question,
                                String correctAnswer, int i, int countAnswer) {
-        int finish = 3;
         int numberRound;
         numberRound = i;
         if (numberRound == 0) {
             System.out.println(rules);
         }
-        if (numberRound < 3) {
+        if (numberRound < NUMBER_OF_ROUNDS) {
             System.out.println(question);
 
             Scanner scanAnswer = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class Engine {
                 System.out.println("Correct!");
                 countAnswer++;
             }
-            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countAnswer == finish) {
+            if (playerAnswer.equalsIgnoreCase(correctAnswer) && countAnswer == NUMBER_OF_ROUNDS) {
                 System.out.println("Congratulations, " + userName + "!");
             }
             if (!playerAnswer.equalsIgnoreCase(correctAnswer)) {

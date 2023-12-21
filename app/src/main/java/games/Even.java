@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Even {
     static final int INTERVAL = 100;
+    static final int NUMBER_OF_ROUNDS = 3;
     public static void startsTheGameEven() {
         String userName = Cli.greetsThePlayer();
 
@@ -17,9 +18,8 @@ public class Even {
         String correctAnswer = "";
 
         Random random = new Random();
-        int numberOfRounds = 3;
 
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             if (countAnswer == -1) {
                 break;
             }

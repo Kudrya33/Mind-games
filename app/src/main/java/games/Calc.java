@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class Calc {
     static final int INTERVAL = 100;
+    static final int NUMBER_OF_ROUNDS = 3;
+    static final int COUNT_OPERANDS = 3;
     public static void startsTheGameCalc() {
         String userName = Cli.greetsThePlayer();
 
@@ -15,12 +17,10 @@ public class Calc {
         int countAnswer = 0;
 
         Random random = new Random();
-        int numberOfRounds = 3;
         int numberFirst;
         int numberLast;
-        int countOperands = 3;
 
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             if (countAnswer == -1) {
                 break;
             }
@@ -28,7 +28,7 @@ public class Calc {
             numberLast = random.nextInt(INTERVAL);
 
             String[] operands = {"+", "-", "*"};
-            int selectedOperand = random.nextInt(countOperands);
+            int selectedOperand = random.nextInt(COUNT_OPERANDS);
             String operand = operands[selectedOperand];
             int correctAnswer = switch (operand) {
                 case "+" -> numberFirst + numberLast;
