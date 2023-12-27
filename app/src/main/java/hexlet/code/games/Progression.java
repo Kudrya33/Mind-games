@@ -35,7 +35,7 @@ public class Progression {
                 numbers[j] = startNumber + countStep;
                 startNumber = numbers[j];
             }
-            int correctAnswer = numbers[numberMissing];
+            int correctAnswer = answerToQuestion(numbers, numberMissing);
             String correctAnswerToString = Integer.toString(correctAnswer);
 
             numbers[numberMissing] = UNATTAINABLE_NUMBER;
@@ -44,7 +44,15 @@ public class Progression {
             processedString = processedString.replace("[", "").replace("]", "").replace(",", "").replace("999", "..");
 
             String question = "Question: " + processedString;
-            countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
+
+            String[] questionAndAnswer = new String[2];
+            questionAndAnswer[0] = question;
+            questionAndAnswer[1] = correctAnswerToString;
+
+            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
         }
+    }
+    public static int answerToQuestion(int[] numbers, int numberMissing) {
+        return numbers[numberMissing];
     }
 }

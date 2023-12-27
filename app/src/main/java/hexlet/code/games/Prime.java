@@ -22,22 +22,33 @@ public class Prime {
                 break;
             }
             int number = random.nextInt(INTERVAL);
-            String correctAnswer = "";
-            if (number < 2) {
-                correctAnswer = "no";
-            }
-            if (number >= 2) {
-                for (int j = 2; j <= number / 2; j++) {
-                    if (number % j == 0) {
-                        correctAnswer = "no";
-                        break;
-                    } else {
-                        correctAnswer = "yes";
-                    }
+
+            String correctAnswer = answerToQuestion(number);
+
+            String question = "Question: " + number;
+
+            String[] questionAndAnswer = new String[2];
+            questionAndAnswer[0] = question;
+            questionAndAnswer[1] = correctAnswer;
+
+            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
+        }
+    }
+    public static String answerToQuestion(int number) {
+        String answer = "";
+        if (number < 2) {
+            answer = "no";
+        }
+        if (number >= 2) {
+            for (int j = 2; j <= number / 2; j++) {
+                if (number % j == 0) {
+                    answer = "no";
+                    break;
+                } else {
+                    answer = "yes";
                 }
             }
-            String question = "Question: " + number;
-            countAnswer = Engine.upEngine(userName, rules, question, correctAnswer, i, countAnswer);
         }
+        return answer;
     }
 }

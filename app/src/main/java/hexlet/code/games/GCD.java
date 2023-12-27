@@ -19,29 +19,37 @@ public class GCD {
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 
-            int correctAnswer = 1;
-
             if (countAnswer == -1) {
                 break;
             }
             int number1 = random.nextInt(INTERVAL);
             int number2 = random.nextInt(INTERVAL);
-            int numberOne = number1;
-            int numberTwo = number2;
 
-            while (numberTwo != 0) {
-                int remainder = numberOne % numberTwo;
-                correctAnswer = numberTwo;
-                numberOne = numberTwo;
-                numberTwo = remainder;
-            }
-            if (number2 == 0) {
-                correctAnswer = number1;
-            }
+            int correctAnswer = answerToQuestion(number1, number2);
 
             String correctAnswerToString = Integer.toString(correctAnswer);
             String question = "Question: " + number1 + " " + number2;
-            countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
+
+            String[] questionAndAnswer = new String[2];
+            questionAndAnswer[0] = question;
+            questionAndAnswer[1] = correctAnswerToString;
+
+            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
         }
+    }
+    public static int answerToQuestion(int number1, int number2) {
+        int answer = 1;
+        int numberOne = number1;
+        int numberTwo = number2;
+        while (numberTwo != 0) {
+            int remainder = numberOne % numberTwo;
+            answer = numberTwo;
+            numberOne = numberTwo;
+            numberTwo = remainder;
+        }
+        if (number2 == 0) {
+            answer = number1;
+        }
+        return answer;
     }
 }

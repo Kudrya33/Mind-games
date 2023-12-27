@@ -15,8 +15,6 @@ public class Even {
 
         int countAnswer = 0;
 
-        String correctAnswer = "";
-
         Random random = new Random();
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
@@ -24,14 +22,19 @@ public class Even {
                 break;
             }
             int evenNumber = random.nextInt(INTERVAL);
-            if (evenNumber % 2 == 0) {
-                correctAnswer = "yes";
-            }
-            if (evenNumber % 2 != 0) {
-                correctAnswer = "no";
-            }
+
+            String correctAnswer = answerToQuestion(evenNumber);
+
             String question = "Question: " + evenNumber;
-            countAnswer = Engine.upEngine(userName, rules, question, correctAnswer, i, countAnswer);
+
+            String[] questionAndAnswer = new String[2];
+            questionAndAnswer[0] = question;
+            questionAndAnswer[1] = correctAnswer;
+
+            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
         }
+    }
+    public static String answerToQuestion(int evenNumber) {
+        return evenNumber % 2 == 0 ? "yes" : "no";
     }
 }

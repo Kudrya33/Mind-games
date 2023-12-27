@@ -28,16 +28,35 @@ public class Calc {
             String[] operands = {"+", "-", "*"};
             int selectedOperand = random.nextInt(COUNT_OPERANDS);
             String operand = operands[selectedOperand];
-            int correctAnswer = switch (operand) {
-                case "+" -> numberFirst + numberLast;
-                case "-" -> numberFirst - numberLast;
-                case "*" -> numberFirst * numberLast;
-                default -> 0;
-            };
+
+            int correctAnswer = answerToQuestion(numberFirst, numberLast, operand);
+
             String correctAnswerToString = Integer.toString(correctAnswer);
 
             String question = "Question: " + numberFirst + " " + operands[selectedOperand] + " " + numberLast;
-            countAnswer = Engine.upEngine(userName, rules, question, correctAnswerToString, i, countAnswer);
+
+            String[] questionAndAnswer = new String[2];
+            questionAndAnswer[0] = question;
+            questionAndAnswer[1] = correctAnswerToString;
+
+            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
+        }
+    }
+    public static int answerToQuestion(int numberFirst, int numberLast, String operand) {
+        int answer;
+        switch (operand) {
+            case "+":
+                answer = numberFirst + numberLast;
+                return answer;
+            case "-":
+                answer = numberFirst - numberLast;
+                return answer;
+            case "*":
+                answer = numberFirst * numberLast;
+                return answer;
+            default:
+                answer = 0;
+                return answer;
         }
     }
 }
