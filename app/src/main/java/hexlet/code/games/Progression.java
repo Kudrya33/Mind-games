@@ -9,16 +9,17 @@ public class Progression {
     static final int UNATTAINABLE_NUMBER = 999;
     static final int NUMBER_OF_ROUNDS = 3;
     static final int ARRAY_LENGTH = 10;
+    static final int MAX_VALUE = 100;
     public static void startsTheGameProgression() {
         String rules = "What number is missing in the progression?";
-        String[] questions = Utils.getArray(3);
-        String[] answers = Utils.getArray(3);
+        String[] questions = Utils.getArray(NUMBER_OF_ROUNDS);
+        String[] answers = Utils.getArray(NUMBER_OF_ROUNDS);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             int[] numbers = new int[ARRAY_LENGTH];
-            int startNumber = Utils.getRandomInt(0, 100);
-            int countStep = Utils.getRandomInt(10);
-            int numberMissing = Utils.getRandomInt(10);
+            int startNumber = Utils.getRandomInt(0, MAX_VALUE);
+            int countStep = Utils.getRandomInt(ARRAY_LENGTH);
+            int numberMissing = Utils.getRandomInt(ARRAY_LENGTH);
             numbers[0] = startNumber;
             for (int j = 1; j < numbers.length; j++) {
                 numbers[j] = startNumber + countStep;

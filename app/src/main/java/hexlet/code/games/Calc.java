@@ -5,14 +5,15 @@ import hexlet.code.Utils;
 
 public class Calc {
     static final int NUMBER_OF_ROUNDS = 3;
+    static final int MAX_VALUE = 100;
     public static void startsTheGameCalc() {
         String rules = "What is the result of the expression?";
-        String[] questions = Utils.getArray(3);
-        String[] answers = Utils.getArray(3);
+        String[] questions = Utils.getArray(NUMBER_OF_ROUNDS);
+        String[] answers = Utils.getArray(NUMBER_OF_ROUNDS);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            int numberFirst = Utils.getRandomInt(0, 100);
-            int numberLast = Utils.getRandomInt(0, 100);
+            int numberFirst = Utils.getRandomInt(0, MAX_VALUE);
+            int numberLast = Utils.getRandomInt(0, MAX_VALUE);
 
             String[] operands = {"+", "-", "*"};
             int selectedOperand = Utils.getRandomInt(0, 2);

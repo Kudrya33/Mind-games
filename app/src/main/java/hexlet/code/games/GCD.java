@@ -5,14 +5,15 @@ import hexlet.code.Utils;
 
 public class GCD {
     static final int NUMBER_OF_ROUNDS = 3;
+    static final int MAX_VALUE = 100;
     public static void startsTheGameGCD() {
         String rules = "Find the greatest common divisor of given numbers.";
-        String[] questions = Utils.getArray(3);
-        String[] answers = Utils.getArray(3);
+        String[] questions = Utils.getArray(NUMBER_OF_ROUNDS);
+        String[] answers = Utils.getArray(NUMBER_OF_ROUNDS);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            int number1 = Utils.getRandomInt(0, 100);
-            int number2 = Utils.getRandomInt(0, 100);
+            int number1 = Utils.getRandomInt(0, MAX_VALUE);
+            int number2 = Utils.getRandomInt(0, MAX_VALUE);
 
             int correctAnswer = answerToQuestion(number1, number2);
 
