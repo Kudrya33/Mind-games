@@ -1,35 +1,24 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Progression {
-    static final int INTERVAL = 100;
     static final int UNATTAINABLE_NUMBER = 999;
-    static final int INTERVAL_CHOICE = 10;
     static final int NUMBER_OF_ROUNDS = 3;
     static final int ARRAY_LENGTH = 10;
     public static void startsTheGameProgression() {
-        String userName = Cli.greetsThePlayer();
-
         String rules = "What number is missing in the progression?";
-
-        int countAnswer = 0;
-
-        Random random = new Random();
+        String[] questions = Utils.getArray(3);
+        String[] answers = Utils.getArray(3);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-
-            if (countAnswer == -1) {
-                break;
-            }
             int[] numbers = new int[ARRAY_LENGTH];
-            int startNumber = random.nextInt(INTERVAL);
-            int countStep = random.nextInt(INTERVAL_CHOICE);
-            int numberMissing = random.nextInt(INTERVAL_CHOICE);
+            int startNumber = Utils.getRandomInt(0, 100);
+            int countStep = Utils.getRandomInt(10);
+            int numberMissing = Utils.getRandomInt(10);
             numbers[0] = startNumber;
             for (int j = 1; j < numbers.length; j++) {
                 numbers[j] = startNumber + countStep;
@@ -45,12 +34,10 @@ public class Progression {
 
             String question = "Question: " + processedString;
 
-            String[] questionAndAnswer = new String[2];
-            questionAndAnswer[0] = question;
-            questionAndAnswer[1] = correctAnswerToString;
-
-            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
+            questions[i] = question;
+            answers[i] = correctAnswerToString;
         }
+        Engine.upEngine(rules, questions, answers);
     }
     public static int answerToQuestion(int[] numbers, int numberMissing) {
         return numbers[numberMissing];

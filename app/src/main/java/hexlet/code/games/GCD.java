@@ -1,41 +1,28 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
     static final int NUMBER_OF_ROUNDS = 3;
-    static final int INTERVAL = 100;
     public static void startsTheGameGCD() {
-        String userName = Cli.greetsThePlayer();
-
         String rules = "Find the greatest common divisor of given numbers.";
-
-        int countAnswer = 0;
-
-        Random random = new Random();
+        String[] questions = Utils.getArray(3);
+        String[] answers = Utils.getArray(3);
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-
-            if (countAnswer == -1) {
-                break;
-            }
-            int number1 = random.nextInt(INTERVAL);
-            int number2 = random.nextInt(INTERVAL);
+            int number1 = Utils.getRandomInt(0, 100);
+            int number2 = Utils.getRandomInt(0, 100);
 
             int correctAnswer = answerToQuestion(number1, number2);
 
             String correctAnswerToString = Integer.toString(correctAnswer);
             String question = "Question: " + number1 + " " + number2;
 
-            String[] questionAndAnswer = new String[2];
-            questionAndAnswer[0] = question;
-            questionAndAnswer[1] = correctAnswerToString;
-
-            countAnswer = Engine.upEngine(userName, rules, questionAndAnswer, i, countAnswer);
+            questions[i] = question;
+            answers[i] = correctAnswerToString;
         }
+        Engine.upEngine(rules, questions, answers);
     }
     public static int answerToQuestion(int number1, int number2) {
         int answer = 1;
