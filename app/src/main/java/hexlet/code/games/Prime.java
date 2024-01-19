@@ -24,7 +24,7 @@ public class Prime {
         Engine.upEngine(rules, questions, answers);
     }
     public static String answerToQuestion(int number) {
-        String answer = "";
+        String answer = "yes";
         if (number < 2) {
             answer = "no";
         }
