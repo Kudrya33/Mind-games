@@ -10,21 +10,16 @@ public class Progression {
     static final int NUMBER_OF_ROUNDS = 3;
     static final int ARRAY_LENGTH = 10;
     static final int MAX_VALUE = 100;
-    public static void startsTheGameProgression() {
+    public static void start() {
         String rules = "What number is missing in the progression?";
-        String[] questions = Utils.getArray(NUMBER_OF_ROUNDS);
-        String[] answers = Utils.getArray(NUMBER_OF_ROUNDS);
+        String[] questions = new String[NUMBER_OF_ROUNDS];
+        String[] answers = new String[NUMBER_OF_ROUNDS];
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            int[] numbers = new int[ARRAY_LENGTH];
-            int startNumber = Utils.getRandomInt(0, MAX_VALUE);
-            int countStep = Utils.getRandomInt(ARRAY_LENGTH);
+
+            var numbers = Utils.progressionGeneration(ARRAY_LENGTH, MAX_VALUE);
             int numberMissing = Utils.getRandomInt(ARRAY_LENGTH);
-            numbers[0] = startNumber;
-            for (int j = 1; j < numbers.length; j++) {
-                numbers[j] = startNumber + countStep;
-                startNumber = numbers[j];
-            }
+
             int correctAnswer = answerToQuestion(numbers, numberMissing);
             String correctAnswerToString = Integer.toString(correctAnswer);
 

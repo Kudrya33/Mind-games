@@ -24,24 +24,24 @@ public class App {
                 break;
             case "1":
                 System.out.println("Welcome to the Brain Games!");
-                Cli.greetsThePlayer();
                 break;
             case "2":
-                Even.startsTheGameEven();
+                Even.start();
                 break;
             case "3":
-                Calc.startsTheGameCalc();
+                Calc.start();
                 break;
             case "4":
-                GCD.startsTheGameGCD();
+                GCD.start();
                 break;
             case "5":
-                Progression.startsTheGameProgression();
+                Progression.start();
                 break;
             case "6":
-                Prime.startsTheGamePrime();
+                Prime.start();
                 break;
             default:
+                throw new Error("Unknown state!");
         }
     }
 }

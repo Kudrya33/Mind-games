@@ -6,10 +6,10 @@ import hexlet.code.Utils;
 public class Calc {
     static final int NUMBER_OF_ROUNDS = 3;
     static final int MAX_VALUE = 100;
-    public static void startsTheGameCalc() {
+    public static void start() {
         String rules = "What is the result of the expression?";
-        String[] questions = Utils.getArray(NUMBER_OF_ROUNDS);
-        String[] answers = Utils.getArray(NUMBER_OF_ROUNDS);
+        String[] questions = new String[NUMBER_OF_ROUNDS];
+        String[] answers = new String[NUMBER_OF_ROUNDS];
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             int numberFirst = Utils.getRandomInt(0, MAX_VALUE);
@@ -19,7 +19,7 @@ public class Calc {
             int selectedOperand = Utils.getRandomInt(0, 2);
             String operand = operands[selectedOperand];
 
-            int correctAnswer = answerToQuestion(numberFirst, numberLast, operand);
+            int correctAnswer = calculations(numberFirst, numberLast, operand);
 
             String correctAnswerToString = Integer.toString(correctAnswer);
             String question = "Question: " + numberFirst + " " + operands[selectedOperand] + " " + numberLast;
@@ -29,7 +29,7 @@ public class Calc {
         }
         Engine.upEngine(rules, questions, answers);
     }
-    public static int answerToQuestion(int numberFirst, int numberLast, String operand) {
+    public static int calculations(int numberFirst, int numberLast, String operand) {
         int answer;
         switch (operand) {
             case "+":

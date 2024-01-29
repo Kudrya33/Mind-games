@@ -11,7 +11,15 @@ public class Utils {
         Random rn = new Random();
         return rn.nextInt(value);
     }
-    public static String[] getArray(int length) {
-        return new String[length];
+    public static int[] progressionGeneration(int arrayLength, int maxValue) {
+        int[] numbers = new int[arrayLength];
+        int startNumber = getRandomInt(0, maxValue);
+        int countStep = getRandomInt(arrayLength);
+        numbers[0] = startNumber;
+        for (int i = 1; i < numbers.length; i++) {
+            numbers[i] = startNumber + countStep;
+            startNumber = numbers[i];
+        }
+        return numbers;
     }
 }
