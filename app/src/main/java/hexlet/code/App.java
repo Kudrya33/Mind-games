@@ -24,6 +24,10 @@ public class App {
                 break;
             case "1":
                 System.out.println("Welcome to the Brain Games!");
+                System.out.println("May I have your name?");
+                Scanner scanUserName = new Scanner(System.in);
+                String userName = scanUserName.next();
+                System.out.println("Hello, " + userName + "!");
                 break;
             case "2":
                 Even.start();
