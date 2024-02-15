@@ -4,25 +4,27 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    static final int NUMBER_OF_ROUNDS = 3;
-    static final int MAX_VALUE = 100;
+    public static final int NUMBER_OF_ROUNDS = 3;
+    public static final int MAX_VALUE = 100;
+
     public static void start() {
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[NUMBER_OF_ROUNDS];
-        String[] answers = new String[NUMBER_OF_ROUNDS];
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             int number = Utils.getRandomInt(0, MAX_VALUE);
 
-            String correctAnswer = answerToQuestion(number) ? "Yes" : "No";
+            String correctAnswer = giveTheCorrectAnswer(number) ? "Yes" : "No";
             String question = "Question: " + number;
 
-            questions[i] = question;
-            answers[i] = correctAnswer;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.upEngine(rules, questions, answers);
+
+        Engine.startTheEngine(rules, questionsAndAnswers);
+
     }
-    public static boolean answerToQuestion(int number) {
+    public static boolean giveTheCorrectAnswer(int number) {
         boolean answer = number >= 2;
         if (number >= 2) {
             for (int j = 2; j <= number / 2; j++) {
@@ -34,4 +36,5 @@ public class Prime {
         }
         return answer;
     }
+
 }

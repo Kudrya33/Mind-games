@@ -6,36 +6,48 @@ import hexlet.code.Utils;
 import java.util.Arrays;
 
 public class Progression {
-    static final int UNATTAINABLE_NUMBER = 999;
-    static final int NUMBER_OF_ROUNDS = 3;
-    static final int ARRAY_LENGTH = 10;
-    static final int MAX_VALUE = 100;
+    public static final int NUMBER_OF_ROUNDS = 3;
+    public static final int ARRAY_LENGTH = 10;
+    public static final int MAX_VALUE = 100;
+
     public static void start() {
         String rules = "What number is missing in the progression?";
-        String[] questions = new String[NUMBER_OF_ROUNDS];
-        String[] answers = new String[NUMBER_OF_ROUNDS];
+        String[][] questionsAndAnswers = new String[NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 
-            var numbers = Utils.progressionGeneration(ARRAY_LENGTH, MAX_VALUE);
+            var numbers = generateProgression(ARRAY_LENGTH, MAX_VALUE);
             int numberMissing = Utils.getRandomInt(ARRAY_LENGTH);
 
-            int correctAnswer = answerToQuestion(numbers, numberMissing);
-            String correctAnswerToString = Integer.toString(correctAnswer);
-
-            numbers[numberMissing] = UNATTAINABLE_NUMBER;
+            String correctAnswer = numbers[numberMissing];
+            numbers[numberMissing] = "..";
 
             String processedString = Arrays.toString(numbers);
-            processedString = processedString.replace("[", "").replace("]", "").replace(",", "").replace("999", "..");
+
+            processedString = processedString.replace("[", "").replace("]", "").replace(",", "");
 
             String question = "Question: " + processedString;
 
-            questions[i] = question;
-            answers[i] = correctAnswerToString;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
-        Engine.upEngine(rules, questions, answers);
+
+        Engine.startTheEngine(rules, questionsAndAnswers);
+
     }
-    public static int answerToQuestion(int[] numbers, int numberMissing) {
-        return numbers[numberMissing];
+
+    public static String[] generateProgression(int arrayLength, int maxValue) {
+        int[] numbers = new int[arrayLength];
+        String[] numbersArr = new String[arrayLength];
+        int startNumber = Utils.getRandomInt(0, maxValue);
+        int countStep = Utils.getRandomInt(arrayLength);
+        numbers[0] = startNumber;
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = startNumber + countStep;
+            numbersArr[i] = "" + numbers[i];
+            startNumber = numbers[i];
+        }
+        return numbersArr;
     }
+
 }

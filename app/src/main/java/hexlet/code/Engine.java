@@ -3,8 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    static final int NUMBER_OF_ROUNDS = 3;
-    public static void upEngine(String rules, String[] questions, String[] answers) {
+    public static final int NUMBER_OF_ROUNDS = 3;
+
+    public static void startTheEngine(String rules, String[][] questionsAndAnswers) {
 
         System.out.println("May I have your name?");
 
@@ -16,28 +17,29 @@ public class Engine {
 
         int countCorrectAnswer = 0;
 
-        for (int i = 0; i < questions.length; i++) {
-            System.out.println(questions[i]);
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            System.out.println(questionsAndAnswers[i][0]);
 
             Scanner scanAnswer = new Scanner(System.in);
             String playerAnswer = scanAnswer.nextLine();
 
             System.out.println("Your answer: " + playerAnswer);
 
-            if (playerAnswer.equalsIgnoreCase(answers[i])) {
+            if (playerAnswer.equalsIgnoreCase(questionsAndAnswers[i][1])) {
                 System.out.println("Correct!");
                 countCorrectAnswer++;
             }
-            if (playerAnswer.equalsIgnoreCase(answers[i]) && countCorrectAnswer == NUMBER_OF_ROUNDS) {
+            if (playerAnswer.equalsIgnoreCase(questionsAndAnswers[i][1]) && countCorrectAnswer == NUMBER_OF_ROUNDS) {
                 System.out.println("Congratulations, " + userName + "!");
                 break;
             }
-            if (!playerAnswer.equalsIgnoreCase(answers[i])) {
+            if (!playerAnswer.equalsIgnoreCase(questionsAndAnswers[i][1])) {
                 System.out.println("'" + playerAnswer + "' is wrong answer ;(. "
-                        + "Correct answer was '" + answers[i] + "'.");
+                        + "Correct answer was '" + questionsAndAnswers[i][1] + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 break;
             }
         }
     }
+
 }
