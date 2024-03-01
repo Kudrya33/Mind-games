@@ -6,16 +6,16 @@ import hexlet.code.Utils;
 public class GCD {
     public static final int NUMBER_OF_ROUNDS = 3;
     public static final int MAX_VALUE = 100;
+    public static final String RULES = "Find the greatest common divisor of given numbers.";
 
     public static void start() {
-        String rules = "Find the greatest common divisor of given numbers.";
         String[][] questionsAndAnswers = new String[NUMBER_OF_ROUNDS][2];
 
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             int number1 = Utils.getRandomInt(0, MAX_VALUE);
             int number2 = Utils.getRandomInt(0, MAX_VALUE);
 
-            int correctAnswer = giveTheCorrectAnswer(number1, number2);
+            int correctAnswer = calculateGcd(number1, number2);
 
             String correctAnswerToString = Integer.toString(correctAnswer);
             String question = "Question: " + number1 + " " + number2;
@@ -24,11 +24,11 @@ public class GCD {
             questionsAndAnswers[i][1] = correctAnswerToString;
         }
 
-        Engine.startTheEngine(rules, questionsAndAnswers);
+        Engine.startTheEngine(RULES, questionsAndAnswers);
 
     }
 
-    public static int giveTheCorrectAnswer(int number1, int number2) {
+    public static int calculateGcd(int number1, int number2) {
         int answer = 1;
         int numberOne = number1;
         int numberTwo = number2;
